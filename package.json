@@ -8,7 +8,10 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --output-path angularapp  --aot --prod"
+    "preinstall": "npm i -g http-server && npm i -g @angular/cli",
+    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
+    "build:prod": "ng build --prod",
+    "heroku-postbuild": "npm run build:prod"
   },
   "engines": {
     "node": "v8.11.4",
